@@ -21,7 +21,7 @@ public class ProductsBB implements Serializable {
     @Inject ProductCatalogueBean pcBean;
     
     public List<Product> getAll(){
-        pcBean.addP();
+//        pcBean.addP();
         return pcBean.getAll();
     }
 }

@@ -29,4 +29,34 @@ public final class OrderBook extends AbstractDAO<PurchaseOrder, Long> implements
         }
         return found;
     }
+
+    @Override
+    public List<PurchaseOrder> getAll() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void update(PurchaseOrder t) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public PurchaseOrder find(Long id) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<PurchaseOrder> getRange(int maxResults, int firstResult) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public int getCount() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void remove(Long id) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

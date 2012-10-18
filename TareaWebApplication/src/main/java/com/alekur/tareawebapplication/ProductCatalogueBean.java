@@ -23,11 +23,11 @@ public class ProductCatalogueBean implements Serializable{
     public void addP(){
         if(i==0){
         i = 1;
-        JPAShop.INSTANCE.getProductCatalogue().add(new Product(1L,"Produkt",13.37));
+        pc.add(new Product(1L,"Produkt",13.37));
         }
     }
     public List<Product> getAll(){
-        return JPAShop.INSTANCE.getProductCatalogue().getAll();
+        return pc.getAll();
     }
     
      public void add(Product p) {
