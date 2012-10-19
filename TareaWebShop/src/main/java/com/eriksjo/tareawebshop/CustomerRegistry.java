@@ -25,22 +25,22 @@ public final class CustomerRegistry extends AbstractDAO<Customer, Long> implemen
             if (c.getFname().equals(name) || c.getLname().equals(name)) {
                 found.add(c);
             }
-        }
+       }
         return found;
     }
 
     @Override
-    public List<Customer> getAll() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void update(Customer t) {
+    public void remove(Long id) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public Customer find(Long id) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<Customer> getAll() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -55,7 +55,7 @@ public final class CustomerRegistry extends AbstractDAO<Customer, Long> implemen
     }
 
     @Override
-    public void remove(Long id) {
+    public void update(Customer t) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }

@@ -1,4 +1,4 @@
-    package com.eriksjo.tareawebshop;
+package com.eriksjo.tareawebshop;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,28 +9,26 @@ import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 
 /**
- * A container for entities
- * Base class for OrderBook, ProductCatalogue, CustomerRegistry
- * 
+ * A container for entities Base class for OrderBook, ProductCatalogue,
+ * CustomerRegistry
+ *
  * K is type of id (primary key)
- * 
+ *
  * @author hajo
  */
 public abstract class AbstractDAO<T, K> implements IDAO<T, K> {
 
     private EntityManagerFactory emf;
     private final Class<T> clazz;
-    
-    
-    protected AbstractDAO(Class<T> clazz, String puName){
+
+    protected AbstractDAO(Class<T> clazz, String puName) {
         this.clazz = clazz;
         emf = Persistence.createEntityManagerFactory(puName);
     }
-    
 
     @Override
     public void add(T t) {
-          EntityManager em = null;
+        EntityManager em = null;
         try {
             // Create ...
             em = emf.createEntityManager();
@@ -39,29 +37,49 @@ public abstract class AbstractDAO<T, K> implements IDAO<T, K> {
             em.getTransaction().begin();
             em.persist(t);
             em.getTransaction().commit();
-        } catch (Exception ex) {
-            ExceptionHandler.handle(ex);
+        } catch (Exception e) {
+            System.out.println(e);
         } finally {
             if (em != null) {
                 em.close();  // ... and destroy
             }
         }
     }
-   
-    public void update(T t) {
+
+    @Override
+    public T find(K id) {
         EntityManager em = null;
-        T t2 = null;
+        T t = null;
         try {
             em = emf.createEntityManager();
-            em.getTransaction().begin();
-            t2 = em.merge(t);
-            em.getTransaction().commit();
-        } catch (Exception ex) {
-            ExceptionHandler.handle(ex);
+            t = em.find(clazz, id);
+        } catch (Exception e) {
+            System.out.println(e);
         } finally {
             if (em != null) {
                 em.close();
             }
         }
+        return t;
+    }
+
+    @Override
+    public void remove(K id) {
+        EntityManager em = null;
+
+        try {
+            em = emf.createEntityManager();
+            T t = em.getReference(clazz, id);
+            em.getTransaction().begin();
+            em.remove(t);
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+
     }
 }

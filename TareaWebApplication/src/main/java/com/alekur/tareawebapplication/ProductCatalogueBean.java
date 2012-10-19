@@ -40,11 +40,15 @@ public class ProductCatalogueBean implements Serializable{
 
    
     public void update(Product p) {
+        System.out.println("Fick tag i id: " + p.getId());
+        System.out.println("Fick tag i namn: " + p.getName());
+        System.out.println("Fick tag i price: " + p.getPrice());
         pc.update(p);
     }
 
    
     public void remove(Long id) {
+        System.out.println("redirecting to remove method");
         pc.remove(id);
     }
     

@@ -79,7 +79,7 @@ public final class ProductCatalogue extends AbstractDAO<Product, Long> implement
 
     }
     
-    // A read, no transaction
+    @Override
     public Product find(Long id) {
         EntityManager em = emf.createEntityManager();
         Product p = em.find(Product.class, id);
@@ -87,9 +87,11 @@ public final class ProductCatalogue extends AbstractDAO<Product, Long> implement
 
     }
     
+    @Override
     public void remove(Long id) {
         EntityManager em = null;
         try {
+            System.out.println("Removing product!");
             em = emf.createEntityManager();
             em.getTransaction().begin();
             Product p = em.getReference(Product.class, id);
@@ -105,7 +107,9 @@ public final class ProductCatalogue extends AbstractDAO<Product, Long> implement
     }
     
     
+    @Override
     public void update(Product p) {
+        System.out.println("Du är inne i produktkatalogen och mergar!");
         EntityManager em = null;
         Product p2 = null;
         try {
