@@ -1,9 +1,12 @@
     package com.eriksjo.shop;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaQuery;
 
 /**
  * A container for entities
@@ -17,6 +20,7 @@ public abstract class AbstractDAO<T, K> implements IDAO<T, K> {
 
     private EntityManagerFactory emf;
     private final Class<T> clazz;
+    
     
     protected AbstractDAO(Class<T> clazz, String puName){
         this.clazz = clazz;
@@ -43,35 +47,21 @@ public abstract class AbstractDAO<T, K> implements IDAO<T, K> {
             }
         }
     }
-
-    @Override
-    public void remove(K id) {
-
-    }
-
-    @Override
+   
     public void update(T t) {
-
-    }
-
-    @Override
-    public T find(K id) {    
-
-        return null;
-    }
-
-    @Override
-    public List<T> getAll() {
-        return null;
-    }
-
-    @Override
-    public List<T> getRange( int firstResult, int maxResults) {
-        return null;
-    }
-
-    @Override
-    public int getCount() {
-        return 0;
+        EntityManager em = null;
+        T t2 = null;
+        try {
+            em = emf.createEntityManager();
+            em.getTransaction().begin();
+            t2 = em.merge(t);
+            em.getTransaction().commit();
+        } catch (Exception ex) {
+            ExceptionHandler.handle(ex);
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
     }
 }
