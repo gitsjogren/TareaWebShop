@@ -3,9 +3,19 @@
 <glassfish-web-app error-url="">
   <context-root>/TareaWebShop</context-root>
   <security-role-mapping>
+<<<<<<< HEAD
     <role-name>AdminRole</role-name>
     <principal-name>admin</principal-name>
   </security-role-mapping>
+=======
+    <role-name>Admin</role-name>
+    <principal-name>admin</principal-name>
+  </security-role-mapping>
+  <security-role-mapping>
+    <role-name>User</role-name>
+    <principal-name>user</principal-name>
+  </security-role-mapping>
+>>>>>>> bfd2debddfd07905a9040c1879e855982333be2d
   <class-loader delegate="true"/>
   <jsp-config>
     <property name="keepgenerated" value="true">

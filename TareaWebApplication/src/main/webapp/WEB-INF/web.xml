@@ -21,6 +21,7 @@
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+<<<<<<< HEAD
     <security-constraint>
         <display-name>adminConstraint</display-name>
         <web-resource-collection>
@@ -44,3 +45,6 @@
         <role-name>AdminRole</role-name>
     </security-role>
 </web-app>
+=======
+</web-app>
+>>>>>>> bfd2debddfd07905a9040c1879e855982333be2d

@@ -109,6 +109,10 @@ public final class ProductCatalogue extends AbstractDAO<Product, Long> implement
     
     @Override
     public void update(Product p) {
+<<<<<<< HEAD
+=======
+        System.out.println("Du är inne i produktkatalogen och mergar!");
+>>>>>>> bfd2debddfd07905a9040c1879e855982333be2d
         EntityManager em = null;
         Product p2 = null;
         try {
