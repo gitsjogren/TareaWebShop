@@ -1,7 +1,6 @@
 
 package com.eriksjo.tareawebshop;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,12 +18,7 @@ public final class OrderBook extends AbstractDAO<PurchaseOrder, Long> implements
     }
 
     @Override
-    public void remove(Long id) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public PurchaseOrder find(Long id) {
+    public void update(PurchaseOrder t) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -48,10 +42,7 @@ public final class OrderBook extends AbstractDAO<PurchaseOrder, Long> implements
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
-    public void update(PurchaseOrder t) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+
 
 
 

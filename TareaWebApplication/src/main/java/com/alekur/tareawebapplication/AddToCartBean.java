@@ -4,6 +4,7 @@
  */
 package com.alekur.tareawebapplication;
 
+
 import com.eriksjo.tareawebshop.Product;
 import java.io.Serializable;
 import java.util.Map;
@@ -16,7 +17,7 @@ import javax.inject.Named;
  *
  * @author alekur
  */
-@Named()
+@Named("addCart")
 @ConversationScoped
 public class AddToCartBean implements Serializable{
     
@@ -45,8 +46,8 @@ public class AddToCartBean implements Serializable{
     public void actionListener(ActionEvent ae) {
 
         Product product = (Product) ae.getComponent().getAttributes().get("prod");
-        String id = ae.getComponent().getId();
-        addToCart(product);
+        Product p = new Product(product.getId(),product.getName(),product.getPrice());
+        addToCart(p);
         
     }
 }

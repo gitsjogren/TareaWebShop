@@ -5,13 +5,8 @@
 package com.alekur.tareawebapplication;
 
 import com.eriksjo.tareawebshop.Cart;
-import com.eriksjo.tareawebshop.IOrderBook;
-import com.eriksjo.tareawebshop.IProductCatalogue;
-import com.eriksjo.tareawebshop.JPAShop;
 import com.eriksjo.tareawebshop.Product;
-import com.eriksjo.tareawebshop.PurchaseOrder;
 import java.io.Serializable;
-import java.util.List;
 import java.util.Map;
 import javax.enterprise.context.SessionScoped;
 
@@ -32,9 +27,6 @@ public class CartBean implements Serializable{
     }
 
     void add(Product p) {
-        System.out.println("cb"+p.getId());
-        System.out.println("cb"+p.getName());
-        System.out.println("cb"+p.getPrice());
         cart.add(p);
     }
     

@@ -22,7 +22,7 @@
                         <f:facet name="header">
                             <h:outputText value="ID"/>
                         </f:facet>
-                        <h:outputText value="#{item}"/>
+                        <h:outputText value="#{item.key.id}"/>
                     </h:column>
 
                     <h:column>
@@ -43,11 +43,13 @@
                         <f:facet name="header">
                             <h:outputText value="Quantity"/>
                         </f:facet>
-                        <h:outputText value="#{item.key.value*item.key.price}"/>
+                        <h:outputText value="#{item.value}"/>
                     </h:column>
 
 
                 </h:dataTable>
+                
+                <h:commandButton value="Checkout" action="checkout?faces-redirect=true"/>
             </ui:define>
 
             <ui:define name="left">
