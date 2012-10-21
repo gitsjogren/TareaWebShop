@@ -29,21 +29,21 @@
                         <f:facet name="header">
                             <h:outputText value="Name"/>
                         </f:facet>
-                        <h:outputText value="#{item.entry}"/>
+                        <h:outputText value="#{item.key.name}"/>
                     </h:column>
 
                     <h:column>
                         <f:facet name="header">
                             <h:outputText value="Price"/>
                         </f:facet>
-                        <h:outputText value="#{item.entry}"/>
+                        <h:outputText value="#{item.key.price}"/>
                     </h:column>
                     
                     <h:column>
                         <f:facet name="header">
                             <h:outputText value="Quantity"/>
                         </f:facet>
-                        <h:outputText value="#{item.key}"/>
+                        <h:outputText value="#{item.key.value*item.key.price}"/>
                     </h:column>
 
 
