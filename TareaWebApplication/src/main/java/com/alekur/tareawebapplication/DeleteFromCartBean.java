@@ -4,7 +4,6 @@
  */
 package com.alekur.tareawebapplication;
 
-
 import com.eriksjo.tareawebshop.Product;
 import java.io.Serializable;
 import java.util.Map;
@@ -15,13 +14,12 @@ import javax.inject.Named;
 
 /**
  *
- * @author alekur
+ * @author Alexander
  */
-@Named("addCart")
+@Named("deleteFromCart")
 @ConversationScoped
-public class AddToCartBean implements Serializable{
-    
-    @Inject
+public class DeleteFromCartBean implements Serializable {
+      @Inject
     private CartBean cb;
     
     @Inject
@@ -30,9 +28,9 @@ public class AddToCartBean implements Serializable{
     @Inject
     private ShowCartBean scb;
     
-    public String addToCart(Product p){
-        cb.add(p);                
-        return "products?faces-redirect=true";
+    public String delete(Product p){
+        cb.remove(p);                
+        return "cart?faces-redirect=true";
     }
    
     public Map<Product,Integer> getAll(){
@@ -43,7 +41,7 @@ public class AddToCartBean implements Serializable{
 
         Product product = (Product) ae.getComponent().getAttributes().get("prod");
         Product p = new Product(product.getId(),product.getName(),product.getPrice());
-        addToCart(p);
+        delete(p);
         
     }
 }
