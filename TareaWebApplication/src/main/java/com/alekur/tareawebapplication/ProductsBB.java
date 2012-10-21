@@ -21,11 +21,6 @@ public class ProductsBB implements Serializable {
     @Inject ProductCatalogueBean pcBean;
     
     public List<Product> getAll(){
-<<<<<<< HEAD
-
-=======
-//        pcBean.addP();
->>>>>>> bfd2debddfd07905a9040c1879e855982333be2d
         return pcBean.getAll();
     }
 }
