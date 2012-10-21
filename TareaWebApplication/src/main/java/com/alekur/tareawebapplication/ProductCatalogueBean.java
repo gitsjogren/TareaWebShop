@@ -17,17 +17,10 @@ import javax.enterprise.context.SessionScoped;
  */
 @SessionScoped
 public class ProductCatalogueBean implements Serializable{
-    IProductCatalogue pc = JPAShop.INSTANCE.getProductCatalogue();
-    private int i = 0;
-    
-    public void addP(){
-        if(i==0){
-        i = 1;
-        JPAShop.INSTANCE.getProductCatalogue().add(new Product(1L,"Produkt",13.37));
-        }
-    }
+    IProductCatalogue pc = JPAShop.INSTANCE.getProductCatalogue();  
+
     public List<Product> getAll(){
-        return JPAShop.INSTANCE.getProductCatalogue().getAll();
+        return pc.getAll();
     }
     
      public void add(Product p) {

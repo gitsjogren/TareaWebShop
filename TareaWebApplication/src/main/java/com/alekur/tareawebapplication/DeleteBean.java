@@ -56,6 +56,7 @@ public class DeleteBean implements Serializable{
     }
 
     public void actionListener(ActionEvent ae) {
+        
         if (conv.isTransient()) {
             conv.begin();
              Logger.getAnonymousLogger().log(Level.INFO, "CONVERSATION BEGINS: Got id {0}", id);
@@ -75,6 +76,7 @@ public class DeleteBean implements Serializable{
              Logger.getAnonymousLogger().log(Level.INFO, "CONVERSATION ENDS");
         }
         try {
+            System.out.println("Removing product: " + id + " " + name + " " + price);
             pcb.remove(id);
             return "products?faces-redirect=true"; // Go back
         } catch (Exception e) {

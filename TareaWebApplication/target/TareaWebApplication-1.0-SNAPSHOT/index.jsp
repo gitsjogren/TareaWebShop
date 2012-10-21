@@ -1,13 +1,26 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
+<%-- 
+    Document   : index.jsp
+    Created on : 2012-okt-21, 14:38:06
+    Author     : Alexander
+--%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Welcome to Tarea's Web Shop!</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+
+
+        <h1>Welcome to Tarea's Web Shop! </h1>
+        
+        Don't stand and linger, come and see what's inside our shop!
+        <p>Administrators login <a href="./faces/adminPages/home.xhtml">here!</a></p>
+           
+            <p>Customers can access our store through <a href="./faces/userPages/home.xhtml" >here!</a></p>
+
+
     </body>
 </html>

@@ -60,6 +60,7 @@ public class EditBean implements Serializable{
         name = p.getName();
         price = p.getPrice();
         
+        
         // Find person from database...
     }
 
@@ -69,6 +70,7 @@ public class EditBean implements Serializable{
              Logger.getAnonymousLogger().log(Level.INFO, "CONVERSATION ENDS");
         }
         try {
+
             Product p = new Product(id,name,price);
             pcb.update(p);
             return "products?faces-redirect=true"; // Go back
