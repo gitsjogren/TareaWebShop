@@ -1,12 +1,8 @@
 package com.eriksjo.tareawebshop;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
-import javax.persistence.criteria.CriteriaQuery;
 
 /**
  * A container for entities Base class for OrderBook, ProductCatalogue,
