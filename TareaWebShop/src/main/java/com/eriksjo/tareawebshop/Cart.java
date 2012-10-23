@@ -14,10 +14,8 @@ public class Cart {
     private final Map<Product, Integer> productFreq = new HashMap<>();
 
     public void add(Product p) {
-        System.out.println("cart"+p.getId());
-        System.out.println("cart"+p.getName());
-        System.out.println("cart"+p.getPrice());
         int i = 1;
+        
         if( productFreq.containsKey(p)) {
             i = productFreq.get(p) + 1;     
         }
@@ -34,7 +32,7 @@ public class Cart {
         }
     }
     
-    public void delete(Product product){
+    public void deleteFromCart(Product product){
         productFreq.remove(product);
     }
 

@@ -22,8 +22,11 @@ public class CartBean implements Serializable{
         return cart.getProductFreq();
     }
    
+    public void deleteFromCart(Product p) {
+        cart.deleteFromCart(p);
+    }
     public void remove(Product p) {
-        cart.delete(p);
+        cart.remove(p);
     }
 
     void add(Product p) {

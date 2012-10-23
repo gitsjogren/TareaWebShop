@@ -29,7 +29,7 @@ public class DeleteFromCartBean implements Serializable {
     private ShowCartBean scb;
     
     public String delete(Product p){
-        cb.remove(p);                
+        cb.deleteFromCart(p);                
         return "cart?faces-redirect=true";
     }
    
@@ -37,11 +37,4 @@ public class DeleteFromCartBean implements Serializable {
         return cb.getAll();
     }
     
-    public void actionListener(ActionEvent ae) {
-
-        Product product = (Product) ae.getComponent().getAttributes().get("prod");
-        Product p = new Product(product.getId(),product.getName(),product.getPrice());
-        delete(p);
-        
-    }
 }

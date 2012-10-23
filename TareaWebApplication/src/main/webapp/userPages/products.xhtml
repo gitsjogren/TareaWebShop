@@ -52,13 +52,15 @@
 
                         <h:form>
 
-                            <h:commandLink value="Add to cart" action="#{addCart.addToCart(prod)}">
-                            </h:commandLink>
+                            <h:commandLink id="add" value="Add to cart"
+                                                  actionListener="#{cartAction.actionListener}"
+                                               action="products?faces-redirect=true">
+                                     <f:attribute name="prod" value="${prod}"/>
+                                 </h:commandLink>
 
                         </h:form>
 
                     </h:column>
-
 
                 </h:dataTable>
 
