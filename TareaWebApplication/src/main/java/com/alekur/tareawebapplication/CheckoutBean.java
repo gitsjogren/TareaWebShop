@@ -9,5 +9,7 @@ package com.alekur.tareawebapplication;
  * @author Alexander
  */
 public class CheckoutBean {
-    
+    /*
+     * To be implemented if we get time.
+     */
 }
