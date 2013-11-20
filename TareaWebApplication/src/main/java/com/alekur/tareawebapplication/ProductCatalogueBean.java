@@ -24,7 +24,11 @@ public class ProductCatalogueBean implements Serializable{
         return pc.getAll();
     }
     
-     public void add(Product p) {
+    public List<Product> search(String searchWord){
+        return pc.search(searchWord);
+    }
+    
+    public void add(Product p) {
         pc.add(p);
     }
     

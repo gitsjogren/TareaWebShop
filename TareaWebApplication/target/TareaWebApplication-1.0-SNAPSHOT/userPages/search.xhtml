@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="./template.xhtml">
+
+        <ui:define name="top">
+            <h2>Search Products</h2>
+        </ui:define>
+
+        <ui:define name="left">
+            
+        </ui:define>
+        
+        <ui:define name="content">
+            <h:form>
+                <h:outputLabel value="Enter a search query here: " style="font-weight:bold" />
+                <h:inputText value="#{search.searchWord}" required="true" />
+                <h:messages />
+                <h:commandButton value="Search" action="#{search.action}"/>
+            </h:form>
+            
+            <h:dataTable value="#{search.productHits}" var="productHit" rendered="#{not empty search.productHits}">
+                <f:facet name="header">Products found: </f:facet>
+                <h:column>
+                    <f:facet name="header">Id: </f:facet>
+                    #{productHit.id}
+                </h:column>
+                <h:column>
+                     <f:facet name="header">Name:</f:facet>
+                     #{productHit.name}
+                </h:column>
+                <h:column>
+                     <f:facet name="header">Price:</f:facet>
+                     #{productHit.price}
+                </h:column>
+            </h:dataTable>
+            <h:outputText value="No matches found!" rendered="#{not empty search.searchWord and empty search.productHits}" />
+                
+        </ui:define>
+
+    </ui:composition>
+
+</html>
+

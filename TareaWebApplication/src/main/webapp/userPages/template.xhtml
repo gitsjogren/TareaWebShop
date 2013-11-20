@@ -16,21 +16,22 @@
 
         <div id="top">
             <h:panelGrid>
-                    <ui:insert name="left">Top</ui:insert>
+                    <ui:insert name="top">Top</ui:insert>
                 </h:panelGrid>
         </div>
         <div>
             <div id="left">
                 <h:link outcome="home.xhtml" value="Home Page" />
-                <br></br>
-                <br></br>
+                <br/><br/>
                 <h:link outcome="products.xhtml" value="Products" />
-                <br></br>
-                <br></br>
+                <br/><br/>
                 <h:link outcome="cart.xhtml" value="Cart" />
-                <br></br>
-                <br></br>
+                <br/><br/>
                 <h:link outcome="rocketshipgame.xhtml" value="Rocketship Game" />
+                <br/><br/>
+                <h:link outcome="/adminPages/home.xhtml" value="Admin Page" />
+                <br/><br/>
+                <h:link outcome="search.xhtml" value="Search" />
             </div>
             <div id="content" class="left_content">
                 <ui:insert name="content">Content</ui:insert>

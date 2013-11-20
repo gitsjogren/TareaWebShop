@@ -4,12 +4,18 @@
  */
 package com.alekur.tareawebapplication;
 
+import java.io.Serializable;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
+
 /**
  *
- * @author Alexander
+ * @author Edfast
  */
-public class CheckoutBean {
-    /*
-     * To be implemented if we get time.
-     */
+
+@Named("checkout")
+@RequestScoped
+public class CheckoutBean implements Serializable {
+    
+    //To be implemented if needed
 }

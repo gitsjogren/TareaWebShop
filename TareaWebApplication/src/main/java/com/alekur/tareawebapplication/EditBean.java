@@ -77,6 +77,7 @@ public class EditBean implements Serializable{
         } catch (Exception e) {
             // Not implemented
             //return "error?faces-redirect=true&amp;cause=" + e.getMessage();
+            e.getMessage();
             return null;
         }
     }

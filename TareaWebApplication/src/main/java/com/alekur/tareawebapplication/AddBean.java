@@ -34,7 +34,7 @@ public class AddBean implements Serializable {
     }
     
     public Long getId(){
-            return id;
+        return id;
     }
 
     public ProductCatalogueBean getPcb() {

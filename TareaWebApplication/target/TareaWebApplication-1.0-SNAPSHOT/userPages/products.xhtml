@@ -10,11 +10,11 @@
         <ui:composition template="./template.xhtml">
 
             <ui:define name="top">
-
+                <h2>Products </h2>
             </ui:define>
 
             <ui:define name="left">
-                Products
+                
             </ui:define>
 
             <ui:define name="content">
@@ -25,10 +25,8 @@
                     </f:facet>
 
                     <h:column>
-                        <f:facet name="header" value="ID">
-                            <h:outputText value="ID"/>
-                        </f:facet>
-                        <h:outputText value="#{prod.id}"/>
+                        <f:facet name="header">ID</f:facet>
+                        #{prod.id}
                     </h:column>
 
                     <h:column>
@@ -53,10 +51,10 @@
                         <h:form>
 
                             <h:commandLink id="add" value="Add to cart"
-                                                  actionListener="#{cartAction.actionListener}"
-                                               action="products?faces-redirect=true">
-                                     <f:attribute name="prod" value="${prod}"/>
-                                 </h:commandLink>
+                                             actionListener="#{cartAction.actionListener}"
+                                             action="products?faces-redirect=true">
+                                <f:attribute name="prod" value="${prod}"/>
+                            </h:commandLink>
 
                         </h:form>
 

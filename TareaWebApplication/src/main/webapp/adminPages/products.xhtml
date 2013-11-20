@@ -9,26 +9,20 @@
 
         <ui:composition template="./template.xhtml">
 
-            <ui:define name="top">
-
+           <ui:define name="top">
+                <h2>Products - ADMIN</h2>
             </ui:define>
-
+            
             <ui:define name="left">
-                Products - ADMIN
+                <!-- Here goes what's inside the template's div with the id "left" -->
             </ui:define>
 
             <ui:define name="content">
                 <h:dataTable value="#{products.getAll()}" var="prod">
 
-                    <f:facet name="header">
-                        <h:outputText value="Products"/>
-                    </f:facet>
-
                     <h:column>
-                        <f:facet name="header" value="ID">
-                            <h:outputText value="ID"/>
-                        </f:facet>
-                        <h:outputText value="#{prod.id}"/>
+                        <f:facet name="header">ID</f:facet>
+                        #{prod.id}
                     </h:column>
 
                     <h:column>
@@ -60,21 +54,17 @@
                         </h:form>
                         
                         <h:form>
-
                             <h:commandLink actionListener="#{delete.actionListener}"   
                                            action="deleteProduct" value="Delete">
                                 <f:attribute name="product" value="#{prod}" />
                             </h:commandLink>
-
                         </h:form>
 
                     </h:column>
 
 
                 </h:dataTable>
-
             </ui:define>
-
         </ui:composition>
 
     </body>

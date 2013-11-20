@@ -8,50 +8,40 @@
     <ui:composition template="./template.xhtml">
 
         <ui:define name="top">
-
+            <h2>Products in cart</h2>
         </ui:define>
 
+        <ui:define name="left">
+        </ui:define>
+        
         <ui:define name="content">
             <h:dataTable value="#{cart.getAll()}" var="item">
 
-                <f:facet name="header">
-                    <h:outputText value="Products"/>
-                </f:facet>
+                <f:facet name="header">Products</f:facet>
 
                 <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="ID"/>
-                    </f:facet>
-                    <h:outputText value="#{item.key.id}"/>
+                    <f:facet name="header">ID</f:facet>
+                    #{item.key.id}
                 </h:column>
 
                 <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Name"/>
-                    </f:facet>
-                    <h:outputText value="#{item.key.name}"/>
+                    <f:facet name="header">Name</f:facet>
+                    #{item.key.name}
                 </h:column>
 
                 <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Price"/>
-                    </f:facet>
-                    <h:outputText value="#{item.key.price*item.value}"/>
+                    <f:facet name="header">Price</f:facet>
+                    #{item.key.price*item.value}
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">Quantity</f:facet>
+                    #{item.value}
                 </h:column>
 
                 <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Quantity"/>
-                    </f:facet>
-                    <h:outputText value="#{item.value}"/>
-                </h:column>
-
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Option"/>
-                    </f:facet>
+                    <f:facet name="header">Option</f:facet>
                     <h:form>
-
                         <h:commandLink id="delete" value="Delete"
                                          actionListener="#{cartAction.actionListener}"
                                          action="cart?faces-redirect=true">
@@ -60,24 +50,21 @@
 
                     </h:form>
                 </h:column>
+                
+                <br/>
+                <f:facet name="footer">
+                    <h:column>
+                        <h:outputText value="Total Price: "/>
+                    </h:column>
+                </f:facet>
+
             </h:dataTable>
-
-
-            <br></br>
-            <br></br>
-            <!--To be implemented-->
-            <h:outputText value="Total Price: "/>
-            <br></br>
-            <br></br>
-
-            <h:commandButton value="Checkout" action="checkout?faces-redirect=true"/>
+            <br/><br/>
+            
+            <h:commandButton id="checkout" value="Checkout" 
+                             actionListener="#{cartAction.actionListener}"
+                             action="checkout?faces-redirect=true" />
         </ui:define>
-
-        <ui:define name="left">
-            Cart
-        </ui:define>
-
-
 
     </ui:composition>
 

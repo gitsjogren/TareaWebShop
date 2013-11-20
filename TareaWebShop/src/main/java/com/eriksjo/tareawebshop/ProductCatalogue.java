@@ -57,6 +57,24 @@ public final class ProductCatalogue extends AbstractDAO<Product, Long> implement
         return prods;
     }
     
+    @Override
+    public List<Product> search(String searchWord){
+        EntityManager em = emf.createEntityManager();
+        List<Product> prodHits = new ArrayList<>();
+        String searchQuery = ("%" + searchWord + "%");
+        try {
+            String query = "SELECT * FROM Product WHERE Name LIKE :param";
+            TypedQuery<Product> q = em.createQuery(query, Product.class);
+            q.setParameter("param", searchQuery);
+            q.setMaxResults(40);
+            prodHits = q.getResultList();
+        } catch (Exception e) {
+            System.out.print(e);
+        }
+        em.close();
+        return prodHits;
+    }    
+    
     // Uses the Criteria API, a bit hairy...
     private List<Product> select(boolean all, int start, int count) {
         EntityManager em = emf.createEntityManager();

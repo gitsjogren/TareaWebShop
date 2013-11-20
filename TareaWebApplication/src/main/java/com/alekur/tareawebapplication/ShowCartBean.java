@@ -25,8 +25,19 @@ public class ShowCartBean implements Serializable {
     
    public List<Map.Entry<Product, Integer>> getAll(){
         Map <Product, Integer> tempCart = cb.getAll();
-        Set<Map.Entry<Product, Integer>> tempSet = tempCart.entrySet();
+        Set <Map.Entry<Product, Integer>> tempSet = tempCart.entrySet();
         
         return new ArrayList<Map.Entry<Product, Integer>>(tempSet);
     }
+   
+   //public List<Map.Entry<Product, Integer>> prodsInCart();
+   
+  /* public double getTotalPrice() {
+        double totPrice = 0;
+        for (Product tempProd : ) {
+            tempProd = ;
+            totPrice += tempProd.getPrice();
+        }
+        return totPrice;
+    }*/
 }

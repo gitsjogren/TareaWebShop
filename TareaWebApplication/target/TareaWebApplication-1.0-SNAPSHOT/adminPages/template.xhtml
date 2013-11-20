@@ -12,21 +12,19 @@
     </h:head>
 
     <h:body>
-
-
         <div id="top">
             <h:panelGrid>
-                    <ui:insert name="left">Top</ui:insert>
-                </h:panelGrid>
+                    <ui:insert name="top">Top</ui:insert>
+            </h:panelGrid>
         </div>
         <div>
             <div id="left">
-                <h:link outcome="home.xhtml" value="Home Page" />
-                <br></br>
-                <br></br>
+                <h:link outcome="/userPages/home.xhtml" value="Home page"/>
+                <br/><br/>
+                <h:link outcome="home.xhtml" value="Admin Home Page" />
+                <br/><br/>
                 <h:link outcome="products.xhtml" value="Products" />
-                <br></br>
-                <br></br>
+                <br/><br/>
                 <h:link outcome="newProduct.xhtml" value="New Product" />
             </div>
             <div id="content" class="left_content">

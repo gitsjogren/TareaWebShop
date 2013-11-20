@@ -40,7 +40,7 @@ public class AddProductTest {
         prods1.add(p3);
         prods1.add(p4);
 
-        c1 = new Customer(new Address("gata",2,"stad"), "fnamn", "enamn", "e@mail.nu");
+        c1 = new Customer(new Address("gata",2,"stad"), "fnamn", "lnamn", "e@mail.nu");
         c1.addProductToCart(p1);
         c1.addProductToCart(p2);
         c1.addProductToCart(p3);

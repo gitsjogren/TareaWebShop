@@ -11,4 +11,7 @@ public interface IProductCatalogue extends IDAO<Product, Long> {
 
     List<Product> getByName(String name);
     
+    public List<Product> search(String searchWord);
+
+    
 }

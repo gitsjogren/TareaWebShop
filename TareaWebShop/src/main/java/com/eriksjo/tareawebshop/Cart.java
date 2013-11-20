@@ -1,6 +1,8 @@
 package com.eriksjo.tareawebshop;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -12,7 +14,9 @@ public class Cart {
 
     // Java 1.7
     private final Map<Product, Integer> productFreq = new HashMap<>();
-
+    
+    //private List<Product> productsInCart = new ArrayList<>();
+    
     public void add(Product p) {
         int i = 1;
         
@@ -39,6 +43,10 @@ public class Cart {
     public Map<Product, Integer> getProductFreq() {
         return productFreq;
     }
+    
+    /*public List<Product> getProductsInCart() {
+        return productsInCart = (List) productFreq;
+    }*/
 
     @Override
     public String toString() {

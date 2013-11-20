@@ -1,14 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="./template.xhtml">
+
+        <ui:define name="top">
+            <h2>Checkout</h2>
+        </ui:define>
+
+        <ui:define name="left">
+        </ui:define>
+        
+        <ui:define name="content">
+            <h:dataTable value="#{cart.getAll()}" var="item">
+
+                <f:facet name="header">Products</f:facet>
+
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                    #{item.key.id}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Name</f:facet>
+                    #{item.key.name}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Price</f:facet>
+                    #{item.key.price*item.value}
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">Quantity</f:facet>
+                    #{item.value}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Option</f:facet>
+                    <h:form>
+                        <h:commandLink id="delete" value="Delete"
+                                         actionListener="#{cartAction.actionListener}"
+                                         action="cart?faces-redirect=true">
+                            <f:attribute name="prod" value="${item.key}"/>
+                        </h:commandLink>
+
+                    </h:form>
+                </h:column>
+                
+                <br/>
+                <f:facet name="footer">
+                    <h:column>
+                        <h:outputText value="Total Price:"/>
+                    </h:column>
+                </f:facet>
+
+            </h:dataTable>
+            <br/><br/>
+            
+            <h:form>
+                <h:panelGrid>
+                        <h:outputLabel value="Name: " style="font-weight:bold" />
+                        <h:inputText value="#{checkout.fname}" />
+                        <h:outputLabel value="Last Name: " style="font-weight:bold" />
+                        <h:inputText value="#{checkout.lname}" />
+                        <h:outputLabel value="Price: " style="font-weight:bold" />
+                        <h:inputText value="#{add.price}" />
+                        <h:commandButton value="Submit purchase" action="#{checkout.action}"/>
+                        <h:commandButton value="Back" action="products?faces-redirect=true"/>
+                    </h:panelGrid>
+                
+            </h:form>
+            
+            <h:commandButton id="submit" value="Submit" 
+                             actionListener="#{cartAction.actionListener}"
+                             action="checkout?faces-redirect=true" />
+        </ui:define>
+
+    </ui:composition>
+
 </html>
+
